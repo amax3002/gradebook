@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  letter_grade: MyString
+  date_of_grade: 2016-11-29
+  grade_type: MyString
+
+two:
+  student_id: 1
+  letter_grade: MyString
+  date_of_grade: 2016-11-29
+  grade_type: MyString
