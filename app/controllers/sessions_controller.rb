@@ -7,16 +7,18 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     if @user && @user.password == params[:password]
+      # Does the logging in
       session["current_user_id"] = @user.id
-      redirect_to bills_path
+
+      redirect_to grades_path
     else
-      @message = "Wrong username or password"
+      @message = "Go AWAY dingus!!!!!"
       render :new
     end
   end
 
   def destroy
     session.delete("current_user_id")
-    redirect_to root_path
+    redirect_to grades_path
   end
 end

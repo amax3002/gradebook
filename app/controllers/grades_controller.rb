@@ -1,12 +1,12 @@
 class GradesController < ApplicationController
-  before_action :authorized!, only: :new
-
-  def authorized!
-    if !current_user
-      redirect_to root_path
-      return
-    end
-  end
+  # before_action :authorized!, only: :new
+  #
+  # def authorized!
+  #   if !current_user
+  #     redirect_to root_path
+  #     return
+  #   end
+  # end
 
   def index
     @grades = Grade.all
