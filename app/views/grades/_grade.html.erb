@@ -1,0 +1,20 @@
+<div class="row grade">
+  <div class="col-md-8">
+    <h2>
+      <%= grade.letter_grade%>
+      <small><%= grade.type %></small>
+    </h2>
+  </div>
+  <div class="col-md-4">
+    <% if can? :update, grade %>
+      <%= link_to "Edit Post", edit_grade_path(grade.id), class: 'btn btn-sm btn-default' %>
+    <% end %>
+    <% if can? :delete, grade %>
+      <%= link_to "Delete Post", grade_path(grade.id), method: :delete, class: 'btn btn-sm btn-default' %>
+    <% end %>
+  </div>
+</div>
+
+<p>
+  <%= grade.content %>
+</p>
