@@ -14,7 +14,7 @@ class GradesController < ApplicationController
   end
 
   def new
-    @grade = Grade.new(user_id: current_user.id, amount: 0)
+    @grade = Grade.new(teacher_id: current_user.id)
   end
 
   def create

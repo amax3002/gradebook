@@ -18,4 +18,10 @@ class User < ApplicationRecord
   def member?
     membership_type == "member"
   end
+
+  def generate_email
+    self.email = self.full_name.downcase.split(" ").join("") + "@gwu.edu"
+    self.save
+  end
+
 end

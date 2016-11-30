@@ -9,12 +9,15 @@
 <%= form_for @grade do |f| %>
 
   <%= f.label :grade_type %>
-  <%= f.select :grade_type, ["Restaurant", "Other"] %>
+  <%= f.select :grade_type, ["HW", "Test"] %>
 
-  <%= f.label :amount %>
-  <%= f.text_field :amount, class: 'form-control' %>
+  <%= f.label :letter_grade %>
+  <%= f.text_field :letter_grade, class: 'form-control' %>
 
-  <%= f.hidden_field :user_id,  class: 'form-control' %>
+  <%= f.label :date_of_grade %>
+  <%= f.date_field :date_of_grade, class: 'form-control' %>
+
+  <%= f.hidden_field :teacher_id,  class: 'form-control' %>
 
   <%= f.submit class: "btn btn-primary"%>
 
