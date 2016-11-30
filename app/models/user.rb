@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :grades
+  has_one :student
 
 
   def password
@@ -21,6 +22,11 @@ class User < ApplicationRecord
 
   def generate_email
     self.email = self.full_name.downcase.split(" ").join("") + "@gwu.edu"
+    self.save
+  end
+
+  def default_password
+    self.password = "password"
     self.save
   end
 

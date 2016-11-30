@@ -1,0 +1,11 @@
+<div class="row grade">
+  <div class="col-md-8">
+    <h2>
+      <%= grade.letter_grade%>
+      <small><%= grade.grade_type %></small>
+    </h2>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "Delete Post", grade_path(grade.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>

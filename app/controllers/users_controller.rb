@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.generate_email
+    @user.default_password
     session["message"] = "you signed up!"
     if @user.save
       session["current_user_id"] = @user.id

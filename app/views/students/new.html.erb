@@ -1,14 +1,8 @@
 <h1>Create Student</h1>
-<%= form_for @student do |f| %>
+<%= form_for :user_id do |f| %>
 
   <%= f.label :full_name %>
-  <%= f.text_field :full_name, class: 'form-control' %>
-
-  <%= f.label :email %>
-  <%= f.hidden_field :email, class: 'form-control' %>
-
-  <%= f.label :password %>
-  <%= f.hidden_field :password, class: 'form-control' %>
+  <%= f.text_field :user_id, class: 'form-control' %>
 
   <hr>
 

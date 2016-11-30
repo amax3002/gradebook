@@ -1,0 +1,33 @@
+<h1>
+  Grade Details for <%= @grade.title %>
+  <small><%= @grade.student.user.full_name %></small>
+</h1>
+
+<%= link_to "Go Back", grades_path %>
+
+<hr>
+
+<div class = "row">
+  <div class = "col-md-3">
+    Grade
+  </div>
+  <div class="col-md-6">
+    Comment
+  </div>
+  <div <div class="col-md-3">
+    Created By Which Teacher
+  </div>
+</div>
+
+<hr>
+<div class = "row">
+  <div class = "col-md-3">
+    <%= @grade.letter_grade %>
+  </div>
+  <div class="col-md-6">
+    <%= @grade.comment %>
+  </div>
+  <div <div class="col-md-3">
+    <%= @grade.teacher.user.full_name %>
+  </div>
+</div>

@@ -42,6 +42,6 @@ class GradesController < ApplicationController
   def grade_params
     # Whitelist params
     # Returns a hash with only the keys listed in the permit method.
-    params.require(:grade).permit(:student_id, :letter_grade, :date_of_grade, :grade_type)
+    params.require(:grade).permit(:student_id, :letter_grade, :date_of_grade, :grade_type, :title, :comment, :teacher_id)
   end
 end

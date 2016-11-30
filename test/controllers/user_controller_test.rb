@@ -8,12 +8,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
 
   test "generate email from full_name" do
     post users_path, params: { user: { full_name: "Alex Guy", password: "password" } }
-
     User.last.generate_email
-
-    binding.pry
-
-    assert_equal User.last.email, 'alexguy@gwu.edu'
+    assert_equal User.last.email, "alexguy@gwu.edu"
   end
-
 end

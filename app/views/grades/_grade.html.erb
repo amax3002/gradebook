@@ -1,16 +1,23 @@
-<div class="row grade">
-  <div class="col-md-8">
-    <h2>
-      <%= grade.letter_grade%>
-      <small><%= grade.grade_type %></small>
-    </h2>
-  </div>
+<div class="row">
   <div class="col-md-4">
-    <% if can? :update, grade %>
-      <%= link_to "Edit Post", edit_grade_path(grade.id), class: 'btn btn-sm btn-default' %>
-    <% end %>
-    <% if can? :delete, grade %>
-      <%= link_to "Delete Post", grade_path(grade.id), method: :delete, class: 'btn btn-sm btn-default' %>
-    <% end %>
+    <h3>
+      <%= link_to grade.title, grade_path(grade.id) %>
+    </h3>
+
+  </div>
+  <div class="general_formatting">
+    <div class="col-md-2">
+      <%= grade.student.user.full_name %>
+    </div>
+    <div class="col-md-2">
+      <%= grade.letter_grade%>
+    </div>
+    <div class="col-md-2">
+      <%= grade.grade_type %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "Edit Post", edit_grade_path(grade.id), class: 'btn btn-sm btn-primary' %>
+      <%= link_to "Delete Post", grade_path(grade.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+    </div>
   </div>
 </div>

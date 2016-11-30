@@ -3,22 +3,35 @@
 <%= link_to "Home Page", grades_path %>
 
 <% @grade.errors.full_messages.each do |error| %>
-  <%= error %>
+<%= error %>
 <% end %>
 
 <%= form_for @grade do |f| %>
 
+<%= f.label :title %>
+<%= f.text_field :title, class: 'form-control' %>
+
+<div class="drop_down_list">
   <%= f.label :grade_type %>
   <%= f.select :grade_type, ["HW", "Test"] %>
+</div>
 
-  <%= f.label :letter_grade %>
-  <%= f.text_field :letter_grade, class: 'form-control' %>
+<%= f.label :letter_grade %>
+<%= f.text_field :letter_grade, class: 'form-control' %>
 
-  <%= f.label :date_of_grade %>
-  <%= f.date_field :date_of_grade, class: 'form-control' %>
+<%= f.label :date_of_grade %>
+<%= f.date_field :date_of_grade, class: 'form-control' %>
 
-  <%= f.hidden_field :teacher_id,  class: 'form-control' %>
+<div class="drop_down_list">
+  <%= f.label :student_id %>
+  <%= f.select :student_id, Student.all.map { |student|  [student.user.full_name, student.id] }, include_blank: true %>
+</div>
 
-  <%= f.submit class: "btn btn-primary"%>
+<%= f.label :comment %>
+<%= f.text_field :comment, class: 'form-control' %>
+
+<%= f.hidden_field :teacher_id,  class: 'form-control' %>
+
+<%= f.submit class: "btn btn-primary"%>
 
 <% end %>
