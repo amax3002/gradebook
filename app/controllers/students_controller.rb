@@ -19,16 +19,16 @@ class StudentsController < ApplicationController
     end
   end
 
-  # def show
-  #   @student = Student.find(params["id"])
-  #   render :show
-  # end
-  #
-  # def destroy
-  #   @student = Student.find(params["id"])
-  #   @student.destroy
-  #   redirect_to students_path
-  # end
+  def show
+    @student = Student.find(params["id"])
+    render :show
+  end
+
+  def destroy
+    @student = Student.find(params["id"])
+    @student.destroy
+    redirect_to students_path
+  end
 
   def student_params
     params.require(:student).permit( user_id: [ :id, :full_name, :password])

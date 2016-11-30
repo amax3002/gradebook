@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :grades
   has_one :student
+  has_one :parent
 
 
   def password

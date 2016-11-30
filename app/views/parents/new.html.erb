@@ -1,0 +1,15 @@
+<h1>Create Parent</h1>
+<%= form_for :user_id do |f| %>
+
+  <%= f.label :full_name %>
+  <%= f.text_field :user_id, class: 'form-control' %>
+
+  <div class="drop_down_list">
+    <%= f.label :student_id %>
+    <%= f.select :student_id, Student.all.map { |student|  [student.user.full_name, student.id] }, include_blank: true %>
+  </div>
+
+  <hr>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

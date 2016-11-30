@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'parents/new'
+
   get 'students/new'
 
   root "homepages#index"
