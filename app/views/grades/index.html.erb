@@ -6,3 +6,13 @@
 <%= link_to "New Parent", new_parent_path %>
 
 <%= render @grades %>
+
+<% if total_pages > current_page  %>
+  <%= link_to "Next Page", grades_path(page: current_page + 1) %>
+<% end %>
+<% 10.times do |i| %>
+  <%= link_to current_page + i, grades_path(page: current_page + i) %>
+<% end %>
+<% if current_page > 0  %>
+  <%= link_to "Prev Page", grades_path(page: current_page - 1)%>
+<% end %>
