@@ -43,6 +43,10 @@ class GradesController < ApplicationController
       render :new
     end
   end
+``
+  def edit
+    @grade = Grade.find(params["id"])
+  end
 
   def show
     @grade = Grade.find(params["id"])
