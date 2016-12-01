@@ -1,0 +1,10 @@
+<div class="row grade">
+  <div class="col-md-8">
+    <h2>
+      <%= link_to parent.user.full_name, parent_path(parent.id) %>
+    </h2>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "Delete Post", parent_path(parent.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+  </div>
+</div>

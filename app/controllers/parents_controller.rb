@@ -1,16 +1,15 @@
 class ParentsController < ApplicationController
   def index
-    @parents = Parent.all
+    @parents = parent.all
     render :index
   end
 
   def new
-    @parent = Parent.new(user_id: User.create.id)
+    @parent = parent.new(user_id: User.create.id.to_i)
   end
 
   def create
-    # Will call setter for each of the hash key value pairs.
-    @parent = Parent.new(parent_params)
+    @parent = parent.new(parent_params)
 
     if @parent.save
       redirect_to parents_path
@@ -20,17 +19,17 @@ class ParentsController < ApplicationController
   end
 
   def show
-    @parent = Parent.find(params["id"])
+    @parent = parent.find(params["id"])
     render :show
   end
 
   def destroy
-    @parent = Parent.find(params["id"])
+    @parent = parent.find(params["id"])
     @parent.destroy
     redirect_to parents_path
   end
 
   def parent_params
-    params.require(:parent).permit( :student_id, user_id: [ :id, :full_name, :password])
+    params.require(:parent).permit( :student_id, user_attributes: [:full_name, :email, :password])
   end
 end

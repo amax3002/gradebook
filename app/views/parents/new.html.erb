@@ -1,13 +1,18 @@
 <h1>Create Parent</h1>
-<%= form_for :user_id do |f| %>
+<%= form_for @parent do |f| %>
 
-  <%= f.label :full_name %>
-  <%= f.text_field :user_id, class: 'form-control' %>
+  <%= f.label :student_id %>
+  <%= f.text_field :student_id, Student.all.map { |student|  [student.user.full_name, student.id] }, include_blank: true %>
 
-  <div class="drop_down_list">
-    <%= f.label :student_id %>
-    <%= f.select :student_id, Student.all.map { |student|  [student.user.full_name, student.id] }, include_blank: true %>
-  </div>
+  <%= f.label :user_id %>
+  <%= f.hidden_field :user_id, class: 'form-control' %>
+
+  <%= f.fields_for :user do |u| %>
+
+    <%= u.label :full_name %>
+    <%= u.text_field :full_name, class: 'form-control' %>
+
+  <% end %>
 
   <hr>
 

@@ -1,0 +1,42 @@
+<h1>
+  <%= @parent.user.full_name %>
+  <small>Will Put Parents Here</small>
+</h1>
+
+<%= link_to "Go Back", parents_path %>
+
+<hr>
+
+<div class = "row">
+  <div class = "col-md-3">
+    Assignment Name
+  </div>
+  <div class = "col-md-2">
+    Grade
+  </div>
+  <div class="col-md-4">
+    Comment
+  </div>
+  <div <div class="col-md-2">
+    Created By Which Teacher
+  </div>
+</div>
+
+<hr>
+<div class = "row">
+  <% @parent.grades.each do |f| %>
+    <div class = "col-md-3">
+      <%= f.title %>
+    </div>
+    <div class = "col-md-2">
+      <%= f.letter_grade %>
+    </div>
+    <div class="col-md-4">
+      <%= f.comment %>
+    </div>
+    <div <div class="col-md-2">
+      <%= f.teacher.user.full_name %>
+    </div>
+
+  <% end %>
+</div>
