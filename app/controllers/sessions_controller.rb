@@ -19,6 +19,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete("current_user_id")
-    redirect_to roots_path
+    redirect_to root_path
   end
 end

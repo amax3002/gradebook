@@ -1,15 +1,15 @@
 class ParentsController < ApplicationController
   def index
-    @parents = parent.all
+    @parents = Parent.all
     render :index
   end
 
   def new
-    @parent = parent.new(user_id: User.create.id.to_i)
+    @parent = Parent.new(user_id: User.create.id.to_i)
   end
 
   def create
-    @parent = parent.new(parent_params)
+    @parent = Parent.new(parent_params)
 
     if @parent.save
       redirect_to parents_path
@@ -19,12 +19,12 @@ class ParentsController < ApplicationController
   end
 
   def show
-    @parent = parent.find(params["id"])
+    @parent = Parent.find(params["id"])
     render :show
   end
 
   def destroy
-    @parent = parent.find(params["id"])
+    @parent = Parent.find(params["id"])
     @parent.destroy
     redirect_to parents_path
   end

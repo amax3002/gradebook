@@ -1,6 +1,10 @@
 <h1>
   <%= @student.user.full_name %>
-  <small>Will Put Parents Here</small>
+  <small>
+    <% @student.parents.each do |f| %>
+    | <%= link_to f.user.full_name, parent_path(f.id)%>
+    <% end %>
+  </small>
 </h1>
 
 <%= link_to "Go Back", students_path %>

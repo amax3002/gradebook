@@ -1,6 +1,5 @@
 <h1>
   <%= @parent.user.full_name %>
-  <small>Will Put Parents Here</small>
 </h1>
 
 <%= link_to "Go Back", parents_path %>
@@ -9,7 +8,7 @@
 
 <div class = "row">
   <div class = "col-md-3">
-    Assignment Name
+    Child's Name
   </div>
   <div class = "col-md-2">
     Grade
@@ -24,19 +23,23 @@
 
 <hr>
 <div class = "row">
-  <% @parent.grades.each do |f| %>
     <div class = "col-md-3">
-      <%= f.title %>
+        <%= link_to @parent.student.user.full_name, student_path(@parent.student.id) %>
     </div>
     <div class = "col-md-2">
-      <%= f.letter_grade %>
+        <% @parent.student.grades.each do |g| %>
+        <%= link_to g.letter_grade, grade_path(g.id) %> |
+        <% end %>
     </div>
-    <div class="col-md-4">
-      <%= f.comment %>
+    <div class = "col-md-4">
+        <% @parent.student.grades.each do |g| %>
+        <%= g.comment%> |
+        <% end %>
     </div>
-    <div <div class="col-md-2">
-      <%= f.teacher.user.full_name %>
+    <div class = "col-md-2">
+        <% @parent.student.grades.each do |g| %>
+        <%= g.teacher.user.full_name%> |
+        <% end %>
     </div>
 
-  <% end %>
 </div>
