@@ -13,14 +13,6 @@ class User < ApplicationRecord
     self.password_hash = @_password
   end
 
-  def author?
-    membership_type == "author"
-  end
-
-  def member?
-    membership_type == "member"
-  end
-
   def generate_email
     self.email = self.full_name.downcase.split(" ").join("") + "@gwu.edu"
     self.save

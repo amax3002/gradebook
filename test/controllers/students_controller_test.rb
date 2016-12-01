@@ -7,8 +7,8 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "create new" do
-    user = User.create(full_name: "Alex Guy", password: "password")
-    post students_path, params: { student: {user_id: (user.id)}}
+    user_a = User.create(full_name: "Alex Guy", password: "password")
+    post students_path, params: { student: {user_id: (user_a.id)}}
     assert_equal Student.last.user.full_name, "Alex Guy"
   end
 end

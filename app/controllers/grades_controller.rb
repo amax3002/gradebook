@@ -18,7 +18,6 @@ class GradesController < ApplicationController
   end
 
   def create
-    # Will call setter for each of the hash key value pairs.
     @grade = Grade.new(grade_params)
 
     if @grade.save

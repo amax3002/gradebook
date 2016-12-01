@@ -5,11 +5,10 @@ class StudentsController < ApplicationController
   end
 
   def new
-    @student = Student.new(user_id: User.create.id)
+    @student = Student.new(user_id: User.create.id.to_i)
   end
 
   def create
-    # Will call setter for each of the hash key value pairs.
     @student = Student.new(student_params)
 
     if @student.save
@@ -31,6 +30,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit( user_id: [ :id, :full_name, :password])
+    params.require(:student).permit( user_attributes: [:full_name, :email, :password])
   end
 end
